@@ -1,5 +1,5 @@
 /*
- * Listas.cpp
+ * tLista.cpp
  *
  *  Created on: 12/04/2014
  *      Author: leonardo
@@ -7,14 +7,14 @@
 
 #include <iostream>
 #include <string.h>
-#include "Listas.h"
+#include "tLista.h"
 using namespace std;
 template<class tipo>
-Listas<tipo>::lista;
+tLista<tipo>::lista;
 int ultimo = -1 ;
 
 template<class tipo>
-void Listas() {
+void tLista() {
 	template<class tipo>
 	lista[MAXLISTAS];
 	template<class tipo>
@@ -26,12 +26,12 @@ void Listas() {
 }
 
 template<class tipo>
-void ~Listas() {
+void ~tLista() {
 
 }
 
 template<class tipo>
-void Listas<tipo>::destroiLista() {
+void tLista<tipo>::destroiLista() {
 	if(listaVazia()){
 		delete(firstNode);
 	}
@@ -45,12 +45,12 @@ int Adiciona(tipo dado) {
 	else
 		ultimo = ultimo + 1;
 		template<class tipo>
-		Listas<tipo>lista[ultimo] == dado;
+		tLista<tipo>lista[ultimo] == dado;
 		return ultimo;
 }
 
 template<class tipo>
-Listas<tipo>::AdicionaNoInício(tipo dado) {
+tLista<tipo>::AdicionaNoInício(tipo dado) {
 	variáveis
 			inteiro posição; //Variável auxiliar para “caminhar”
 		início
@@ -72,7 +72,7 @@ Listas<tipo>::AdicionaNoInício(tipo dado) {
 }
 
 template<class tipo>
-Listas<tipo>::AdicionaNaPosição(tipo dado,int posicao) {
+tLista<tipo>::AdicionaNaPosição(tipo dado,int posicao) {
 	variáveis
 			inteiro posição;
 		início
@@ -98,7 +98,7 @@ Listas<tipo>::AdicionaNaPosição(tipo dado,int posicao) {
 }
 
 template<class tipo>
-Listas<tipo>::AdicionaEmOrdem(tipo dado) {
+tLista<tipo>::AdicionaEmOrdem(tipo dado) {
 	Procedimento:
 	necessitamos de uma função para comparar os dados (maior);
 	testamos se há espaço;
@@ -136,7 +136,7 @@ int Retira() {
 }
 
 template<class tipo>
-Listas<tipo>::RetiraDoInício() {
+tLista<tipo>::RetiraDoInício() {
 	variáveis
 			inteiro posição, valor;
 		início
@@ -158,7 +158,7 @@ Listas<tipo>::RetiraDoInício() {
 }
 
 template<class tipo>
-Listas<tipo>::RetiraDaPosição(int posiao) {
+tLista<tipo>::RetiraDaPosição(int posiao) {
 	variáveis
 			inteiro posição, valor;
 		início
@@ -185,7 +185,7 @@ Listas<tipo>::RetiraDaPosição(int posiao) {
 }
 
 template<class tipo>
-Listas<tipo>::RetiraEspecífico(tipo dado) {
+tLista<tipo>::RetiraEspecífico(tipo dado) {
 
 		variáveis
 			inteiro posição;
@@ -220,7 +220,7 @@ bool ListaVazia() {
 }
 
 template<class tipo>
-Listas<tipo>::Posição(tipo dado) {
+tLista<tipo>::Posição(tipo dado) {
 	variáveis
 			inteiro posição;
 		início
@@ -239,17 +239,17 @@ Listas<tipo>::Posição(tipo dado) {
 }
 
 template<class tipo>
-Listas<tipo>::Contém(tipo dado) {
+tLista<tipo>::Contém(tipo dado) {
 
 }
 
 template<class tipo>
-Listas<tipo>::Igual(tipo dado1, tipo dado2) {
+tLista<tipo>::Igual(tipo dado1, tipo dado2) {
 
 }
 
 template<class tipo>
-Listas<tipo>::Maior(tipo dado1, tipo dado2) {
+tLista<tipo>::Maior(tipo dado1, tipo dado2) {
 	início
 			SE (dado1 > dado2) ENTÃO
 				RETORNE(Verdadeiro)
@@ -264,6 +264,6 @@ Listas<tipo>::Maior(tipo dado1, tipo dado2) {
 }
 
 template<class tipo>
-Listas<tipo>::Menor(tipo dado1, tipo dado2) {
+tLista<tipo>::Menor(tipo dado1, tipo dado2) {
 
 }

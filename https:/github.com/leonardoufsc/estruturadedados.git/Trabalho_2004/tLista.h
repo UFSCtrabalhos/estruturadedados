@@ -1,5 +1,5 @@
 /*
- * Listas.h
+ * tLista.h
  *
  *  Created on: 12/04/2014
  *      Author: leonardo
@@ -14,15 +14,15 @@
 #define ERROPOSIÇÃO -3
 template <class tipo>
 
-class Listas {
+class tLista {
 
 protected:
- 	Listas<tipo>* firstNode;
-    Listas<tipo>* lastNode;
+ 	tLista<tipo>* firstNode;
+    tLista<tipo>* lastNode;
     int tamanho;
 public:
-	Listas();
-	virtual ~Listas();
+	tLista();
+	virtual ~tLista();
 	//Operações: adicionar e retirar dados da lista
 	int Adiciona(tipo dado);
 	AdicionaNoInício(tipo dado);
@@ -35,7 +35,7 @@ public:
 	//Operações: testar a lista
 	bool ListaCheia();
 	bool ListaVazia();
-	Listas<tipo>* Posição(tipo dado);
+	tLista<tipo>* Posição(tipo dado);
 	bool Contém(tipo dado);
 	bool Igual(tipo dado1, tipo dado2);
 	bool Maior(tipo dado1, tipo dado2);
