@@ -11,7 +11,7 @@
 #define MAXLISTAS 10
 #define ERROLISTACHEIA -1
 #define ERROLISTAVAZIA -2
-#define ERROPOSIÇÃO -3
+#define ERROPOSICAO -3
 template <class tipo>
 
 class tLista {

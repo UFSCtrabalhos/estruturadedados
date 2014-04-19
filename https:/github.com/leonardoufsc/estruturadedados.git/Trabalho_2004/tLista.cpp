@@ -11,7 +11,7 @@
 using namespace std;
 template<class tipo>
 tLista<tipo>::lista;
-int ultimo = -1 ;
+int ultimo = -1;
 
 template<class tipo>
 void tLista() {
@@ -21,7 +21,7 @@ void tLista() {
 	this-> PrimeroElemento=0;
 	template<class tipo>
 	this-> UltimoElemento=0;
-    int ultimo = -1;
+	int ultimo = -1;
 
 }
 
@@ -31,210 +31,195 @@ void ~tLista() {
 }
 
 template<class tipo>
-void tLista<tipo>::destroiLista() {
-	if(listaVazia()){
-		delete(firstNode);
-	}
-	delete(firstNode);
+void destroiLista() {
+
 }
 
 template<class tipo>
 int Adiciona(tipo dado) {
-	if listaCheia()
-		return ERROLISTACHEIA;
+	if ListaCheia()
+	return ERROLISTACHEIA;
 	else
+	ultimo = ultimo + 1;
+	template<class tipo>
+	lista[ultimo] = dado;
+	return ultimo;
+}
+
+template<class tipo>
+int AdicionaNoInício(tipo dado) {
+	int posicao = 0; //Variável auxiliar para “caminhar”
+	if (ListaCheia())
+		return ERROLISTACHEIA;
+	else {
 		ultimo = ultimo + 1;
+		posicao = ultimo;
+	}
+	while (posicao > 0) {
+		//Empurrar tudo para trás
 		template<class tipo>
-		tLista<tipo>lista[ultimo] == dado;
-		return ultimo;
-}
-
-template<class tipo>
-tLista<tipo>::AdicionaNoInício(tipo dado) {
-	variáveis
-			inteiro posição; //Variável auxiliar para “caminhar”
-		início
-			SE (listaCheia) ENTÃO
-				RETORNE(ERROLISTACHEIA)
-			SENÃO
-				último <- último + 1;
-				posição <- último;
-				ENQUANTO (posição > 0) FAÇA
-					//Empurrar tudo para trás
-					dados[posição] <- 						 dados[posição - 1];
-					posição <- posição - 1;
-				FIM ENQUANTO
-				dados[0] <- dado;
-				RETORNE(0);
-			FIM SE
-		fim;
+		lista[posicao] = lista[posicao - 1];
+		posicao = posicao - 1;
+	}
+	template<class tipo>
+	lista[0] = dado;
+	return 0;
 
 }
 
 template<class tipo>
-tLista<tipo>::AdicionaNaPosição(tipo dado,int posicao) {
-	variáveis
-			inteiro posição;
-		início
-			SE (listaCheia) ENTÃO
-				RETORNE(ERROLISTACHEIA)
-			SENÃO
-				SE (destino > último + 1 OU destino < 0) ENTÃO
-					RETORNE(ERROPOSIÇÃO);
-				FIM SE
-				último <- último + 1;
-				posição <- último;
-				ENQUANTO (posição > destino) FAÇA
-					//Empurrar tudo para trás
-					dados[posição] <-
-						dados[posição - 1];
-					posição <- posição - 1;
-				FIM ENQUANTO
-				dados[destino] <- dado;
-				RETORNE(aonde);
-			FIM SE
-		fim;
+int AdicionaNaPosicaeo(tipo dado, int destino) {
+	int posicao = 0;
+	if (ListaCheia())
+		return ERROLISTACHEIA;
+	else {
+		if (destino > ultimo + 1 || destino < 0)
+			return ERROPOSICAO;
+		ultimo = ultimo + 1;
+		posicao = ultimo;
+		while (posicao > destino) {
+			//Empurrar tudo para trás
+			template<class tipo>
+			lista[posicao] = lista[posicao - 1];
+			posicao = posicao - 1;
+		}
+		template<class tipo>
+		lista[destino] = dado;
+		return destino;
+	}
 
 }
 
 template<class tipo>
-tLista<tipo>::AdicionaEmOrdem(tipo dado) {
-	Procedimento:
-	necessitamos de uma função para comparar os dados (maior);
-	testamos se há espaço;
-	procuramos pela posição onde inserir comparando dados;
-	chamamos adicionaNaPosição.
-	Parâmetros:
-	o dado a ser inserido;
-	variáveis
-			inteiro posição; //Variável auxiliar para “caminhar”
-		início
-			SE (listaCheia) ENTÃO
-				RETORNE(ERROLISTACHEIA)
-			SENÃO
-				posição <- 0;
-				ENQUANTO (posição <= último E
-					maior(dado, dados[posição])) FAÇA
-					//Encontrar posição para inserir
-					posição <- posição + 1;
-				FIM ENQUANTO
-				RETORNE(adicionaNaPosição(dado, posição));
-			FIM SE
-		fim;
+int AdicionaEmOrdem(tipo dado) {
+
+	variáveis inteiro
+	posicao; //Variável auxiliar para “caminhar”
+	início SE(ListaCheia)
+	ENTÃO RETORNE(ERROLISTACHEIA)
+	SENÃO posicao
+	<- 0;
+	ENQUANTO (posicao <= ultimo E
+			maior(dado, dados[posicao])) FAÇA
+	//Encontrar posicao para inserir
+	posicao <- posicao + 1;
+	FIM ENQUANTO
+	RETORNE(adicionaNaPosicao(dado, posicao));
+	FIM SE
+	fim;
 
 }
 
 template<class tipo>
 int Retira() {
 	if listaVazia()
-		return ERROLISTAVAZIA
+	return ERROLISTAVAZIA
 	else
-		ultimo = ultimo – 1;
-		return(ultimaPosicao[ultimo + 1]);
-
+	ultimo = ultimo – 1;
+	return (ultimaPosicao[ultimo + 1]);
 
 }
 
 template<class tipo>
 tLista<tipo>::RetiraDoInício() {
-	variáveis
-			inteiro posição, valor;
-		início
-			SE (listaVazia) ENTÃO
-				RETORNE(ERROLISTAVAZIA)
-			SENÃO
-				último <- último - 1;
-				valor <- dados[0];
-				posição <- 0;
-				ENQUANTO (posição <= último) FAÇA
-					//Empurrar tudo para a frente
-					dados[posição] <- 						 dados[posição + 1];
-					posição <- posição + 1;
-				FIM ENQUANTO
-				RETORNE(valor);
-			FIM SE
-		fim;
+	variáveis inteiro
+	posicao, valor;
+	início SE(listaVazia)
+	ENTÃO RETORNE(ERROLISTAVAZIA)
+	SENÃO ultimo
+	<- ultimo - 1;
+	valor < -dados[0];
+	posicao < -0;
+	ENQUANTO(posicao <= ultimo)
+	FAÇA
+	//Empurrar tudo para a frente
+	dados[posicao]
+	<- dados[posicao + 1];
+	posicao < -posicao + 1;
+	FIM ENQUANTO
+	RETORNE(valor);
+	FIM SE
+	fim;
 
 }
 
 template<class tipo>
-tLista<tipo>::RetiraDaPosição(int posiao) {
-	variáveis
-			inteiro posição, valor;
-		início
-			SE (fonte > último OU fonte < 0) ENTÃO
-				RETORNE(ERROPOSIÇÃO)
-			SENÃO
-				SE (listaVazia) ENTÃO
-					RETORNE(ERROLISTAVAZIA)
-				SENÃO
-					último <- último - 1;
-					valor <- dados[fonte];
-					posição <- fonte;
-					ENQUANTO (posição <= último) FAÇA
-						//Empurrar tudo para frente
-						dados[posição] <-
-							dados[posição + 1];
-						posição <- posição + 1;
-					FIM ENQUANTO
-					RETORNE(valor);
-	 			FIM SE
-			FIM SE
-		fim;
+tLista<tipo>::RetiraDaPosicao(int posiao) {
+	variáveis inteiro
+	posicao, valor;
+	início
+	SE (fonte > ultimo OU fonte < 0) ENTÃO
+	RETORNE(ERROPOSIcaO)
+	SENÃO
+	SE (listaVazia) ENTÃO
+	RETORNE(ERROLISTAVAZIA)
+	SENÃO
+	ultimo <- ultimo - 1;
+	valor < -dados[fonte];
+	posicao < -fonte;
+	ENQUANTO(posicao <= ultimo)
+	FAÇA
+	//Empurrar tudo para frente
+	dados[posicao]
+	<-
+	dados[posicao + 1];
+	posicao < -posicao + 1;
+	FIM ENQUANTO
+	RETORNE (valor);
+	FIM SE
+	FIM SE
+	fim;
 
 }
 
 template<class tipo>
 tLista<tipo>::RetiraEspecífico(tipo dado) {
 
-		variáveis
-			inteiro posição;
-	  início
-			SE (listaVazia) ENTÃO
-				RETORNE(ERROLISTAVAZIA)
-			SENÃO
-				posição <- posição(dado);
-				SE (posição < 0) ENTÃO
-					RETORNE(ERROPOSIÇÃO)
-				SENÃO
-					RETORNE(retiraDaPosição(posição));
-				FIM SE
-			FIM SE
-		fim;
+	variáveis inteiro
+	posicao;
+	início SE(listaVazia)
+	ENTÃO RETORNE(ERROLISTAVAZIA)
+	SENÃO posicao
+	<- posicao(dado);
+	SE(posicao < 0)
+	ENTÃO RETORNE(ERROPOSIcaO)
+	SENÃO
+	RETORNE(retiraDaPosicao (posicao));
+	FIM SE
+	FIM SE
+	fim;
 
 }
 
-
 //Operações: testar a lista
 bool ListaCheia() {
-	if ( ultimo == MAXLISTAS -1 )
+	if (ultimo == MAXLISTAS - 1)
 		return true;
 	else
 		return false;
 }
 
 bool ListaVazia() {
-	if ( ultimo == -1 )
-			return true;
+	if (ultimo == -1)
+		return true;
 	return false;
 }
 
 template<class tipo>
-tLista<tipo>::Posição(tipo dado) {
-	variáveis
-			inteiro posição;
-		início
-			posição <- 0;
-		  	ENQUANTO (posição <= último E
-			   NÃO(IGUAL(dado, dados[posição]))) FAÇA
-				posição <- posição + 1;
-			FIM ENQUANTO
-			SE (posição > último) ENTÃO
-			  RETORNE(ERROPOSIÇÃO)
-			SENÃO
-			  RETORNE(posição);
-			FIM SE
-		fim;
+tLista<tipo>::Posicao(tipo dado) {
+	variáveis inteiro
+	posicao;
+	início posicao
+	<- 0;
+	ENQUANTO (posicao <= ultimo E
+			NÃO(IGUAL(dado, dados[posicao]))) FAÇA
+	posicao <- posicao + 1;
+	FIM ENQUANTO
+	SE(posicao > ultimo)
+	ENTÃO RETORNE(ERROPOSIcaO)
+	SENÃO RETORNE(posicao);
+	FIM SE
+	fim;
 
 }
 
@@ -250,16 +235,20 @@ tLista<tipo>::Igual(tipo dado1, tipo dado2) {
 
 template<class tipo>
 tLista<tipo>::Maior(tipo dado1, tipo dado2) {
-	início
-			SE (dado1 > dado2) ENTÃO
-				RETORNE(Verdadeiro)
-			SENÃO
-				RETORNE(Falso);
-			FIM SE
-		fim;
+	início SE(dado1 > dado2)
+	ENTÃO RETORNE(Verdadeiro)
+	SENÃO
+	RETORNE(Falso);
+	FIM SE
+	fim;
 
-		Observação: quando o dado a ser armazenado em uma lista for algo mais complexo do que um inteiro, a comparação de precedência não será mais tão simples (ex.: Empregado1 > Empregado2) e será resultado de um conjunto mais complexo de operações.
-	Para deixar os algoritmos de operações sobre lista independentes do tipo de dado específico armazenado na lista, usamos uma função deste tipo.
+	Observacao: quando o
+	dado a
+	ser armazenado
+	em uma
+	lista
+for algo mais complexo do que um inteiro, a comparacao de precedência não será mais tão simples (ex.: Empregado1 > Empregado2) e será resultado de um conjunto mais complexo de operações.
+Para deixar os algoritmos de operações sobre lista independentes do tipo de dado específico armazenado na lista, usamos uma funcao deste tipo.
 
 }
 
