@@ -9,6 +9,7 @@ void imprimeMenu();
 void imprimirLista(tLista*);
 char* lerString();
 int lerInt();
+int TESTE;
 
 int main(int argc, char** argv) {
 
